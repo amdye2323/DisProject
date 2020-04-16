@@ -1,15 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec"  uri ="http://www.springframework.org/security/tags" %> 
 
-<!--
-=========================================================
-Material Dashboard - v2.1.2
-=========================================================
-
-Product Page: https://www.creative-tim.com/product/material-dashboard
-Copyright 2020 Creative Tim (https://www.creative-tim.com)
-Coded by Creative Tim
-
-=========================================================
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +12,7 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="icon" type="image/png" href="/resources/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-   	Project ERP System
+   	project ㄱㄴㄷㄹ
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -36,11 +29,7 @@ The above copyright notice and this permission notice shall be included in all c
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="/resources/img/sidebar-1.jpg">
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
-
-        Tip 2: you can also add an image using data-image tag
-    -->
+      
       <div class="logo"><a href="/" class="simple-text logo-normal">
           ERP SYSTEM
         </a></div>
@@ -88,18 +77,17 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Notifications</p>
             </a>
           </li>
+          
+          <sec:authorize access="isAnonymous()">
           <li class="nav-item ">
-            <a class="nav-link" href="./rtl.html">
+            <a class="nav-link" href="sign/join">
               <i class="material-icons">language</i>
-              <p>RTL Support</p>
+              <p>회원가입</p>
             </a>
           </li>
-          <li class="nav-item active-pro ">
-            <a class="nav-link" href="./upgrade.html">
-              <i class="material-icons">unarchive</i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
+          </sec:authorize>
+          
+          
         </ul>
       </div>
     </div>
@@ -144,11 +132,7 @@ The above copyright notice and this permission notice shall be included in all c
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
+                  <a class="dropdown-item" href="#">알림메세지출력부</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
@@ -162,11 +146,24 @@ The above copyright notice and this permission notice shall be included in all c
                   <a class="dropdown-item" href="#">Profile</a>
                   <a class="dropdown-item" href="#">Settings</a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
+                  <sec:authorize access="isAuthenticated()">
+						<a class="dropdown-item" href="javascript:logOut();">Logout</a>
+                  </sec:authorize>
+                  <sec:authorize access="isAnonymous()">
+                  		<a class="dropdown-item" href="/sign/customLogin">Login</a>
+                  </sec:authorize>
                 </div>
+                <form action="/customLogout" method="post" id="logFrm">
+               		<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
+                </form>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+      <script type="text/javascript">
+      	function logOut(){
+      		$("#logFrm").submit();
+      	}
+      </script>
       <!-- End Navbar -->

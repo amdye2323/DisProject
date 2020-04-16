@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-됐다고
+joinpage
 </body>
 </html>
