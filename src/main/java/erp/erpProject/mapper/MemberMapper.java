@@ -7,9 +7,20 @@ import erp.erpProject.model.MemberVO;
 
 
 public interface MemberMapper {
-	public MemberVO read(String userid);
-	public void insert(MemberVO mvo);
-	public void authInsert(@Param("userid") String userid, @Param("auth") String auth);
-	public void mInsert(MemberVO memVO);
-	public void authInsert(AuthVO authVO);
+	//memInsert
+	public void memInsert(MemberVO memVO);
+	
+	//memDel
+	public void memDel(MemberVO memVO);
+	
+	//memModify
+	public void memModify(MemberVO memVO);
+	
+	//memList
+	public MemberVO memList(String userid);
+	
+	
+	
+	
+	
 }

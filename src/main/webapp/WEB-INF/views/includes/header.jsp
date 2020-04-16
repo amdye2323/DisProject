@@ -80,7 +80,7 @@
           
           <sec:authorize access="isAnonymous()">
           <li class="nav-item ">
-            <a class="nav-link" href="/sign/join">
+            <a class="nav-link" href="sign/join">
               <i class="material-icons">language</i>
               <p>회원가입</p>
             </a>
