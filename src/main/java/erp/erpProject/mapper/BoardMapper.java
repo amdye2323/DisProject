@@ -18,4 +18,6 @@ public interface BoardMapper {
 	public boolean delNotice(long bno);
 	
 	public int getTotalCount(Criteria cri);
+	
+	public int increaseReply(Long bno);
 }

@@ -31,4 +31,6 @@
   <select id="getCountByBno" resultType="int">
   	select count(rno) from notice_reply where bno = #{bno}
   </select>
+  
+  
   </mapper>

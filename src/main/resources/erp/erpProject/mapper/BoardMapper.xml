@@ -31,4 +31,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select count(*) from notice where bno > 0
 	</select>
 	
+	<select id="increaseReply">
+	update notice set replycnt = replycnt+1 where bno = #{bno}
+	</select>
 </mapper>
