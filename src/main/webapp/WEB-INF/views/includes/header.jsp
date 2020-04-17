@@ -50,7 +50,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="./tables.html">
               <i class="material-icons">content_paste</i>
-              <p>Table List</p>
+              <p>Client List</p>
             </a>
           </li>
           <li class="nav-item ">

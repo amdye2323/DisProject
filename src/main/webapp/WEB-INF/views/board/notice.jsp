@@ -113,14 +113,11 @@
                                 			<a class="page-link" href="${page.startPage -1 }">Previous</a>
                                 			</li>
                                 		</c:if>
-                                		
                                 		<c:forEach var="num" begin="${page.startPage }" end="${page.endPage }">
                                 			<li class="page-item ${page.cri.pageNum == num?'active':'' }">
                                 			<a class="page-link" href="${num }">${num }</a>
                                 			</li>
                                 		</c:forEach>
-                                		
-                                		
                                 		<c:if test="${page.next }">
                                 			<li class="page-item">
                                 			<a class="page-link" href="${page.endPage+1 }">Next</a>

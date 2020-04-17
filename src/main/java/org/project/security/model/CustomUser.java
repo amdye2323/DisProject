@@ -20,7 +20,8 @@ public class CustomUser extends User{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public CustomUser(MemberVO vo) {
+	public CustomUser(MemberVO vo) 
+	{
 		super(vo.getUserid(), vo.getUserpw(), vo.getAuthList().stream()
 				.map(auth -> new SimpleGrantedAuthority(auth.getAuth())).collect(Collectors.toList()));
 		// TODO Auto-generated constructor stub
