@@ -18,7 +18,7 @@
       <property name="jdbcUrl"
          value="jdbc:mysql://127.0.0.1:3306/world?useSSL=false&amp;serverTimezone=UTC" />
       <property name="username" value="root" />
-      <property name="password" value="249joker" />
+      <property name="password" value="1234" />
   </bean>
   
   <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
