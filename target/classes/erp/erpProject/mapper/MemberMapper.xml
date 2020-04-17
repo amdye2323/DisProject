@@ -16,12 +16,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="emp_grade" column="emp_grade"/>
 	</resultMap>
 	
-	<insert id="memInsert">
-		insert into empolyee(emp_name, emp_addr, emp_tel, emp_dir, emp_id, emp_pass, emp_grade) 
+	<insert id="memInsert" parameterType="erp.erpProject.model.MemberVO">
+		insert into employee(emp_name, emp_addr, emp_tel, emp_dir, emp_id, emp_pass, emp_grade) 
 		values(#{emp_name}, #{emp_addr}, #{emp_tel}, #{emp_dir}, #{emp_id}, #{emp_pass}, #{emp_grade})
 	</insert>
 	
-	<delete id="memDel">
+	<!-- <delete id="memDel">
 		delete from empolyee where emp_num=#{emp_num}
 	</delete>
 	
@@ -29,8 +29,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update employee set emp_addr=#{emp_addr}, emp_tel=#{emp_tel}, emp_dir=#{emp_dir}, emp_grade=#{emp_grade} where emp_num=#{emp_num}
 	</select>
 	
-	<select id="memList">
-		select * from employee where emp_num=#{emp_num}
+	되는지 확인하고 페이징 넣기
+	<select id="memList" resultType="erp.erpProject.model.MemberVO">
+		select * from employee
 	</select>
+	
+	<select id="memGet">
+		select * from employee where emp_id = #{userid}
+	</select> -->
 	
 </mapper>
