@@ -63,4 +63,5 @@ public class ReplyServiceImpl implements ReplyService{
 		ReplyPageDTO rpd = new ReplyPageDTO(replyCnt, list);
 		return rpd;
 	}
+	
 }

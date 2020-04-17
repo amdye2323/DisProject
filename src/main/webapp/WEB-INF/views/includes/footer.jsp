@@ -143,7 +143,7 @@
   <!-- Library for adding dinamically elements -->
   <script src="/resources/js/plugins/arrive.min.js"></script>
   <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1LjFnzcZkae2yxtA6B0hf9sQZrccU4Co"></script>
   <!-- Chartist JS -->
   <script src="/resources/js/plugins/chartist.min.js"></script>
   <!--  Notifications Plugin    -->
@@ -327,8 +327,47 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/js/demos.js
       md.initDashboardPageCharts();
-
     });
+  </script>
+  <script type="text/javascript">
+	function intialize(){
+		var myLatlng;
+		var map;
+		var marker;
+
+		myLatlng = new google.maps.LatLng(35.156018, 129.059524);
+
+		var mapOptions = {
+				zoom : 17,
+				center : myLatlng,
+				myapTypeId : google.maps.MapTypeId.ROADMAP,
+				scrollwheel : true,
+				draggable : true
+				};
+
+		map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+		var contentString = '<p style="line-height: 20px;">부산IT학원 </p><p>부산광역시 부산진구 부전2동 중앙대로 708</p>';
+		
+
+		var infowindow = new google.maps.InfoWindow({
+			content : contentString
+			});
+
+		
+		marker = new google.maps.Marker({
+			position : myLatlng,
+			map : map,
+			title : 'Marker'
+			});
+
+		infowindow.open(map,marker);
+
+		google.maps.event.addListener(marker, 'click',function(){
+			infowindow.open(map,marker);
+			});
+		}
+	google.maps.event.addDomListener(window,'load',intialize);
   </script>
 </body>
 </html>

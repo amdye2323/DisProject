@@ -66,7 +66,7 @@
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
+            <a class="nav-link" href="/map">
               <i class="material-icons">location_ons</i>
               <p>Maps</p>
             </a>

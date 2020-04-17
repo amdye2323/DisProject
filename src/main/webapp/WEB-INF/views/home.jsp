@@ -14,8 +14,8 @@
 		<hr class="my-3">
 		<p class="lead">main</p>
 	</div>
+		
 </div>
-
 
 <!-- start footer -->
 <%@ include file="includes/footer.jsp"%>

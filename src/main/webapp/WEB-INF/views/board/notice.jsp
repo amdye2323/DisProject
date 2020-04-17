@@ -33,7 +33,7 @@
                                             <td><c:out value="${board.bno }" /></td>
                                             <td>                                           
                                             <a class="move" href='<c:out value="${board.bno }" />'><c:out value="${board.title }" /> <b>[  
-                                            <c:out value="${board.replyCnt }"></c:out>]</b>
+                                            <c:out value="${board.replyCnt }"></c:out>  ]</b>
                                             </a>
                                             </td>
                                             <td><c:out value="${board.writer }" /></td>
@@ -82,26 +82,48 @@
                                 	</div>
                                 </div> --%>
                                 
+                                <div class="row">
+                                	<div class="col-lg-12">
+                                		<div class="dropdown">
+                                			<button  class="btn btn-primary dropdown-toggle" id="depLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                			Department Category <span class="caret"></span> </button>
+                                			<ul class="dropdown-menu" role="menu" aria-labelledy="depLabel">
+                                				<li class="presentation">
+                                					<a role="menuitem" tabindex="-1" href="#">Full View</a>
+                                				</li>
+                                				<li class="presentation">
+                                					<a role="menuitem" tabindex="-1" href="#">Personnel Department</a>
+                                				</li>
+                                				<li class="presentation">
+                                					<a role="menuitem" tabindex="-1" href="#">Finance Department</a>
+                                				</li>
+                                				<li class="presentation">
+                                					<a role="menuitem" tabindex="-1" href="#">The Legal Department</a>
+                                				</li>
+                                			</ul>
+                                		</div>
+                                	</div>
+                                </div>
                                 <!-- pageNation -->
                                <div class="pull-right">
                                 	<ul class="pagination">
                                 		
                                 		<c:if test="${page.prev }">
-                                			<li class="paginate_button previous">
-                                			<a href="${page.startPage -1 }">Previous</a>
+                                			<li class="page-item disabled">
+                                			<a class="page-link" href="${page.startPage -1 }">Previous</a>
                                 			</li>
                                 		</c:if>
                                 		
                                 		<c:forEach var="num" begin="${page.startPage }" end="${page.endPage }">
-                                			<li class="paginate_button ${page.cri.pageNum == num?'active':'' }">
-                                			<a href="${num }">${num }</a>
+                                			<li class="page-item ${page.cri.pageNum == num?'active':'' }">
+                                			<a class="page-link" href="${num }">${num }</a>
                                 			</li>
                                 		</c:forEach>
                                 		
                                 		
                                 		<c:if test="${page.next }">
-                                			<li class="paginate_button next">
-                                			<a href="${page.endPage+1 }">Next</a>
+                                			<li class="page-item">
+                                			<a class="page-link" href="${page.endPage+1 }">Next</a>
                                 			</li>
                                 		</c:if>
                                 	</ul>
@@ -110,7 +132,6 @@
                                 		<input type="hidden" name="pageNum" value='${page.cri.pageNum }'>
                                 		<input type="hidden" name="amount" value='${page.cri.amount }'>
                                 	</form>
-                                	
                                 </div>
                                 
                             </div>
@@ -145,7 +166,7 @@
  <script type="text/javascript">
 	$(function(){
 		var actionForm = $("#actionForm");
-		$(".paginate_button a").on("click",function(e){
+		$(".page-item a").on("click",function(e){
 			e.preventDefault();
 			actionForm.find("input[name='pageNum']").val($(this).attr("href"));
 			actionForm.submit();

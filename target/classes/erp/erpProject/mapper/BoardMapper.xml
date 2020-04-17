@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="NoticeList" resultType="erp.erpProject.model.NoticeVO">
 	select
-	bno, title, content,writer,created,updatedate 
+	bno, title, content,writer,created,updatedate ,replycnt
 	from notice
 	limit #{pageNum} , #{amount}
 	</select>
